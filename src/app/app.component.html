@@ -1,20 +1,43 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div style="padding-top: 10px; padding-bottom: 10px; padding-left: 50px;; padding-right: 40px;">
+  <div class="row">
+    <div class="col-md-2" style="font-weight:bold;">First Name</div>
+    <div class="col-md-2" style="font-weight:bold;">Last Name</div>
+    <!-- <div class="col-md-2" style="font-weight:bold;">Email</div>
+    <div class="col-md-2" style="font-weight:bold;">Office Phone</div>
+    <div class="col-md-1" style="font-weight:bold;">Street</div>
+    <div class="col-md-1" style="font-weight:bold;">Zip Code</div> -->
+  </div>
+  To add more contacts for this organization
+  <button class="btn btn-primary" [hidden]="enabledEdit" (click)="enableEdit()">Click to
+    edit the existing contacts</button>
+  <div style="margin: 20px;" class="row" *ngFor="let contact of contacts; let i = index">
+    <div class="input col-md-2">
+      <input style="border: 0" [disabled]="i != enableViewId" id="first" type="text" value="{{contact.first_name}}">
+    </div>
+    <div class="input col-md-2">
+      <input style="border: 0" [disabled]="i != enableViewId" id="last" value="{{contact.last_name}}" type="text">
+    </div>
+    <div class="input col-md-1">
+      <i *ngIf="enabledEdit" (click)="cancelSubmitted(i)" style="cursor: pointer;" class="material-icons">cancel</i>
+      <i *ngIf="enabledEdit" (click)="enableView(i)" style="cursor: pointer;" class="material-icons">edit</i>
+      <i *ngIf="enabledEdit" (click)="edit(i)" style="cursor: pointer;" class="material-icons">save</i>
+      <i *ngIf="enabledEdit" (click)="deleteContact(i)" style="cursor: pointer;" class="material-icons">delete</i>
+    </div>
+  </div>
+  To add more contacts for this organization
+  <button class="btn btn-primary" [hidden]="enabled" (click)="enable()">Click to
+    add</button>
+  <div class="row">
+    <div class="input col-md-2">
+      <input placeholder="First name goes here" [hidden]="!enabled" [(ngModel)]="first_name">
+    </div>
+    <div class="input col-md-2">
+      <input [hidden]="!enabled" placeholder="Last name goes here" [(ngModel)]="last_name">
+    </div>
+    <div class="input col-md-1">
+      <button class="btn btn-primary" [hidden]="!enabled" (click)="addContact()">Add
+        Contact</button>
+      <button class="btn btn-warning" [hidden]="!enabled" (click)="cancel()">Cancel</button>
+    </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
