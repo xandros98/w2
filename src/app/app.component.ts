@@ -8,14 +8,20 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  first: string = "";
-  last: string = "";
+
+  first_name_inp: string = "";
+  last_name_inp: string = "";
+  email_inp: string = "";
+  office_phone_inp: string = "";
+  street_inp: string = "";
+  zip_code_inp: string = "";
+
   first_name: string = "";
   last_name: string = "";
-  // email: string = "";
-  // office_phone: string = "";
-  // street: string = "";
-  // zip_code: string = "";
+  email: string = "";
+  office_phone: string = "";
+  street: string = "";
+  zip_code: string = "";
 
   contacts = [];
   enabled = false;
@@ -31,11 +37,11 @@ export class AppComponent {
     this.contacts.push({
       first_name: this.first_name,
       last_name: this.last_name,
+      email: this.email,
+      office_phone: this.office_phone,
+      street: this.street,
+      zip_code: this.zip_code,
       id: ++this.contacts[this.contacts.length - 1].id
-      // email: this.email,
-      // office_phone: this.office_phone,
-      // street: this.street,
-      // zip_code: this.zip_code
     });
 
     // dataService.addContact({
@@ -51,6 +57,10 @@ export class AppComponent {
   cancel() {
     this.first_name = "";
     this.last_name = "";
+    this.email = "";
+    this.office_phone = "";
+    this.street = "";
+    this.zip_code = "";
 
     this.enabled = false;
   }
@@ -62,6 +72,10 @@ export class AppComponent {
     this.contacts[y] = ({
       first_name: this.contacts[y].first_name,
       last_name: this.contacts[y].last_name,
+      email: this.contacts[y].email,
+      office_phone: this.contacts[y].office_phone,
+      street: this.contacts[y].street,
+      zip_code: this.contacts[y].zip_code,
       id: this.contacts[y].id
     });
 
@@ -70,33 +84,16 @@ export class AppComponent {
   }
 
   deleteContact(id: number) {
-    console.log("id: " + id);
     const pos = id;
-    this.contacts.splice(pos, 1);
 
+    this.contacts.splice(pos, 1);
     // dataService.deleteContact
   }
 
   enableView(id) {
     this.view = true;
 
-    console.log("enableView: " + id);
-
     this.enableViewId = id;
-
-    // let y = this.contacts.findIndex(x => x.id === id);
-
-
-    // this.contacts[y].class
-
-    // this.contacts.push({
-    //   first_name:  this.contacts[y].first_name,
-    //   last_name:  this.contacts[y].last_name,
-    //   // email: this.email,
-    //   // office_phone: this.office_phone,
-    //   // street: this.street,
-    //   // zip_code: this.zip_code
-    // });
   }
 
   enableEdit() {
@@ -106,15 +103,17 @@ export class AppComponent {
   enable(id: number) {
     this.enabled = true;
   }
-  private regForm: any;
 
   edit(id) {
     let y = this.contacts.findIndex(x => x.id === id);
-    // console.log(this.regForm.get('first').value);
 
     this.contacts[y] = ({
-      first_name: (<HTMLInputElement>document.getElementById("first")).value,
-      last_name: (<HTMLInputElement>document.getElementById("last")).value,
+      first_name: (<HTMLInputElement>document.getElementById("first_name_inp")).value,
+      last_name: (<HTMLInputElement>document.getElementById("last_name_inp")).value,
+      email: (<HTMLInputElement>document.getElementById("email_inp")).value,
+      office_phone: (<HTMLInputElement>document.getElementById("office_phone_inp")).value,
+      street: (<HTMLInputElement>document.getElementById("street_inp")).value,
+      zip_code: (<HTMLInputElement>document.getElementById("zip_code_inp")).value,
       id: id
     });
 
@@ -126,20 +125,19 @@ export class AppComponent {
     this.contacts.push({
       first_name: "first_name",
       last_name: "this.last_name",
+      email: "sdfsd",
+      office_phone: "sdfsfsds",
+      street: "this.street",
+      zip_code: "dsfffs",
       id: 0
-      // email: this.email,
-      // office_phone: this.office_phone,
-      // street: this.street,
-      // zip_code: this.zip_code
     }, {
-        first_name: "john",
-        last_name: "alex",
+        first_name: "dsfasfdsfsaf",
+        last_name: "sdfsdfadfdsafdsf.fsdfsdf",
+        email: "sdfssdfsfsfdsfsasdfasfdd",
+        office_phone: "sdfsfsfasdfadsffsds",
+        street: "sdfdsfdfsdfsf.sfsfasdfdsfasdfasfdsfasf",
+        zip_code: "dsfffs",
         id: 1
       });
-
-    // this.regForm = this.formBuilder.group({
-    //   first: [''],
-    //   last: ['']
-    // })
   }
 }

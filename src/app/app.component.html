@@ -12,10 +12,22 @@
     edit the existing contacts</button>
   <div style="margin: 20px;" class="row" *ngFor="let contact of contacts; let i = index">
     <div class="input col-md-2">
-      <input style="border: 0" [disabled]="i != enableViewId" id="first" type="text" value="{{contact.first_name}}">
+      <input style="border: 0" [disabled]="i != enableViewId" id="first_name_inp" type="text" value="{{contact.first_name}}">
     </div>
     <div class="input col-md-2">
-      <input style="border: 0" [disabled]="i != enableViewId" id="last" value="{{contact.last_name}}" type="text">
+      <input style="border: 0" [disabled]="i != enableViewId" id="last_name_inp" value="{{contact.last_name}}" type="text">
+    </div>
+    <div class="input col-md-2">
+      <input style="border: 0" [disabled]="i != enableViewId" id="email_inp" type="text" value="{{contact.first_name}}">
+    </div>
+    <div class="input col-md-2">
+      <input style="border: 0" [disabled]="i != enableViewId" id="office_phone_inp" value="{{contact.last_name}}" type="text">
+    </div>
+    <div class="input col-md-2">
+      <input style="border: 0" [disabled]="i != enableViewId" id="street_inp" type="text" value="{{contact.first_name}}">
+    </div>
+    <div class="input col-md-2">
+      <input style="border: 0" [disabled]="i != enableViewId" id="zip_code_inp" value="{{contact.last_name}}" type="text">
     </div>
     <div class="input col-md-1">
       <i *ngIf="enabledEdit" (click)="cancelSubmitted(i)" style="cursor: pointer;" class="material-icons">cancel</i>
@@ -33,6 +45,18 @@
     </div>
     <div class="input col-md-2">
       <input [hidden]="!enabled" placeholder="Last name goes here" [(ngModel)]="last_name">
+    </div>
+    <div class="input col-md-2">
+      <input placeholder="email goes here" [hidden]="!enabled" [(ngModel)]="email">
+    </div>
+    <div class="input col-md-2">
+      <input [hidden]="!enabled" placeholder="office_phone goes here" [(ngModel)]="office_phone">
+    </div>
+    <div class="input col-md-2">
+      <input placeholder="street goes here" [hidden]="!enabled" [(ngModel)]="street">
+    </div>
+    <div class="input col-md-2">
+      <input [hidden]="!enabled" placeholder=" zip_code goes here" [(ngModel)]="zip_code">
     </div>
     <div class="input col-md-1">
       <button class="btn btn-primary" [hidden]="!enabled" (click)="addContact()">Add
