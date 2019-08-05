@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Contact } from './contact.model';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
@@ -33,7 +32,7 @@ export class AppComponent {
   }
 
 
-  addContact(id) {
+  addContact() {
     this.contacts.push({
       first_name: this.first_name,
       last_name: this.last_name,

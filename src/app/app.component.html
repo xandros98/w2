@@ -18,16 +18,16 @@
       <input style="border: 0" [disabled]="i != enableViewId" id="last_name_inp" value="{{contact.last_name}}" type="text">
     </div>
     <div class="input col-md-2">
-      <input style="border: 0" [disabled]="i != enableViewId" id="email_inp" type="text" value="{{contact.first_name}}">
+      <input style="border: 0" [disabled]="i != enableViewId" id="email_inp" type="text" value="{{contact.email}}">
     </div>
     <div class="input col-md-2">
-      <input style="border: 0" [disabled]="i != enableViewId" id="office_phone_inp" value="{{contact.last_name}}" type="text">
+      <input style="border: 0" [disabled]="i != enableViewId" id="office_phone_inp" value="{{contact.office_phone}}" type="text">
     </div>
     <div class="input col-md-2">
-      <input style="border: 0" [disabled]="i != enableViewId" id="street_inp" type="text" value="{{contact.first_name}}">
+      <input style="border: 0" [disabled]="i != enableViewId" id="street_inp" type="text" value="{{contact.street}}">
     </div>
     <div class="input col-md-2">
-      <input style="border: 0" [disabled]="i != enableViewId" id="zip_code_inp" value="{{contact.last_name}}" type="text">
+      <input style="border: 0" [disabled]="i != enableViewId" id="zip_code_inp" value="{{contact.zip_code}}" type="text">
     </div>
     <div class="input col-md-1">
       <i *ngIf="enabledEdit" (click)="cancelSubmitted(i)" style="cursor: pointer;" class="material-icons">cancel</i>
