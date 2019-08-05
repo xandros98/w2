@@ -137,9 +137,9 @@ export class AppComponent {
         id: 1
       });
 
-    this.regForm = this.formBuilder.group({
-      first: [''],
-      last: ['']
-    })
+    // this.regForm = this.formBuilder.group({
+    //   first: [''],
+    //   last: ['']
+    // })
   }
 }
